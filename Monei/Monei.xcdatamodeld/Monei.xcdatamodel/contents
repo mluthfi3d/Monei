@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MainPocketDatabase" representedClassName="MainPocketDatabase" syncable="YES" codeGenerationType="class"/>
+    <entity name="PocketDatabase" representedClassName=".PocketDatabase" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="pocketBalance" optional="YES" attributeType="String"/>
+        <attribute name="pocketColor" optional="YES" attributeType="String"/>
+        <attribute name="pocketDateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pocketLimit" optional="YES" attributeType="String"/>
+        <attribute name="pocketName" optional="YES" attributeType="String"/>
+        <attribute name="pocketPeriod" optional="YES" attributeType="String"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionDatabase" inverseName="pocket" inverseEntity="TransactionDatabase"/>
+    </entity>
+    <entity name="TransactionDatabase" representedClassName=".TransactionDatabase" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="pocket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PocketDatabase" inverseName="transactions" inverseEntity="PocketDatabase"/>
+    </entity>
+</model>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E261" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pocket" representedClassName="Pocket" syncable="YES">
+        <attribute name="pocketBalance" optional="YES" attributeType="String"/>
+        <attribute name="pocketColor" optional="YES" attributeType="String"/>
+        <attribute name="pocketDateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pocketIcon" optional="YES" attributeType="String"/>
+        <attribute name="pocketID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="pocketLimit" optional="YES" attributeType="String"/>
+        <attribute name="pocketName" optional="YES" attributeType="String"/>
+        <attribute name="pocketPeriod" optional="YES" attributeType="String"/>
+        <relationship name="transaction" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="pocket" inverseEntity="Transaction"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="transactionAmount" optional="YES" attributeType="String"/>
+        <attribute name="transactionCategory" optional="YES" attributeType="String"/>
+        <attribute name="transactionDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="transactionID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="transactionNotes" optional="YES" attributeType="String"/>
+        <relationship name="pocket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pocket" inverseName="transaction" inverseEntity="Pocket"/>
+    </entity>
+</model>
